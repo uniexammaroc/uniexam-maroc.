@@ -27,4 +27,10 @@ document.querySelectorAll('.filter').forEach(btn => btn.addEventListener('click'
   btn.classList.add('active');
   document.querySelectorAll('.exam-card').forEach(card => card.hidden = btn.dataset.filter !== 'all' && card.dataset.session !== btn.dataset.filter);
 }));
-</script></body></html>
+</script><section class="exam-card">
+  <h2>Analyse</h2>
+  <p>Contrôle – Année 2023/2024</p>
+  <a href="controle-23-24.pdf" download>
+    Télécharger PDF
+  </a>
+</section></body></html>
