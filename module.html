@@ -1,36 +1,165 @@
-<!doctype html>
-<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module — UniExam Maroc</title><link rel="stylesheet" href="styles.css"></head>
+ 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analyse - UniExam Maroc</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6fb;
+      color: #172033;
+    }
+
+    header {
+      background: #172554;
+      color: white;
+      padding: 25px 8%;
+    }
+
+    header h1 {
+      font-size: 25px;
+    }
+
+    header p {
+      margin-top: 8px;
+      color: #cbd5e1;
+    }
+
+    nav {
+      background: white;
+      padding: 15px 8%;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    nav a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .heading {
+      margin-bottom: 25px;
+    }
+
+    .heading h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .heading p {
+      color: #64748b;
+    }
+
+    .exam-card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+      margin-bottom: 20px;
+    }
+
+    .exam-card h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .exam-card p {
+      color: #64748b;
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    .download {
+      display: inline-block;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      padding: 12px 22px;
+      border-radius: 7px;
+      font-weight: bold;
+    }
+
+    .download:hover {
+      background: #1d4ed8;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 20px;
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #64748b;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+
 <body>
-<header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">U</span><span>UniExam <b>Maroc</b></span></a><nav><a href="index.html#universites">Universités</a><a href="index.html#modules">Modules</a></nav></header>
-<main class="module-main">
-  <a class="back-link" href="index.html">← Retour à l'accueil</a>
-  <span class="eyebrow">UCA · SMI · SEMESTRE 1</span>
-  <h1 id="module-title">Nom du module</h1>
-  <p class="module-intro">Retrouve ici les sujets d'examens, les exercices et les corrigés de ce module.</p>
-  <div class="filter-row"><span class="filter-label">Filtrer par session</span><button class="filter active" data-filter="all">Tout</button><button class="filter" data-filter="normale">Normale</button><button class="filter" data-filter="rattrapage">Rattrapage</button></div>
-  <div class="exam-list">
-    <article class="exam-card" data-session="normale"><div class="pdf-icon">PDF</div><div class="exam-info"><h3>Examen — Session normale 2025</h3><p>Ajoute ici ton fichier PDF autorisé.</p></div><span class="status">À ajouter</span></article>
-    <article class="exam-card" data-session="rattrapage"><div class="pdf-icon">PDF</div><div class="exam-info"><h3>Examen — Session rattrapage 2025</h3><p>Ajoute ici ton fichier PDF autorisé.</p></div><span class="status">À ajouter</span></article>
-    <article class="exam-card" data-session="normale"><div class="pdf-icon">PDF</div><div class="exam-info"><h3>Examen — Session normale 2024</h3><p>Ajoute ici ton fichier PDF autorisé.</p></div><span class="status">À ajouter</span></article>
-  </div>
-  <div class="ad-placeholder"><span>ESPACE PUBLICITAIRE</span><small>Un emplacement pourra être configuré si le site est accepté par AdSense.</small></div>
-  <p class="disclaimer">Les fichiers PDF ne sont pas encore ajoutés. Publie uniquement des documents que tu as le droit de partager.</p>
-</main>
-<footer><a class="brand" href="index.html"><span class="brand-mark">U</span><span>UniExam <b>Maroc</b></span></a><div><a href="about.html">À propos</a><a href="privacy.html">Confidentialité</a><a href="contact.html">Contact</a></div><small>© 2026 UniExam Maroc</small></footer>
-<script>
-const params = new URLSearchParams(location.search);
-const name = params.get('name') || 'Nom du module';
-document.getElementById('module-title').textContent = name;
-document.title = name + ' — UniExam Maroc';
-document.querySelectorAll('.filter').forEach(btn => btn.addEventListener('click', () => {
-  document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  document.querySelectorAll('.exam-card').forEach(card => card.hidden = btn.dataset.filter !== 'all' && card.dataset.session !== btn.dataset.filter);
-}));
-</script><section class="exam-card">
-  <h2>Analyse</h2>
-  <p>Contrôle – Année 2023/2024</p>
-  <a href="controle-23-24.pdf" download>
-    Télécharger PDF
-  </a>
-</section></body></html>
+
+  <header>
+    <h1>UniExam Maroc</h1>
+    <p>Votre plateforme d'examens universitaires</p>
+  </header>
+
+  <nav>
+    <a href="./index.html">Accueil</a>
+  </nav>
+
+  <main class="container">
+
+    <div class="heading">
+      <h2>Analyse</h2>
+      <p>Retrouvez les contrôles et examens de cette matière.</p>
+    </div>
+
+    <section class="exam-card">
+      <h3>Contrôle 2023-2024</h3>
+
+      <p>
+        Matière : Analyse<br>
+        Type : Contrôle<br>
+        Année universitaire : 2023-2024
+      </p>
+
+      <a
+        class="download"
+        href="./controle-23-24.pdf"
+        download="controle-23-24.pdf">
+        Télécharger PDF
+      </a>
+    </section>
+
+    <a class="back" href="./index.html">
+      ← Retour à l'accueil
+    </a>
+
+  </main>
+
+  <footer>
+    © 2026 UniExam Maroc - Tous droits réservés
+  </footer>
+
+</body>
+</html>
