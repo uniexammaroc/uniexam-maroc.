@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module — UniExam Maroc</title><link rel="stylesheet" href="styles.css"></head>
+<body>
+<header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">U</span><span>UniExam <b>Maroc</b></span></a><nav><a href="index.html#universites">Universités</a><a href="index.html#modules">Modules</a></nav></header>
+<main class="module-main">
+  <a class="back-link" href="index.html">← Retour à l'accueil</a>
+  <span class="eyebrow">UCA · SMI · SEMESTRE 1</span>
+  <h1 id="module-title">Nom du module</h1>
+  <p class="module-intro">Retrouve ici les sujets d'examens, les exercices et les corrigés de ce module.</p>
+  <div class="filter-row"><span class="filter-label">Filtrer par session</span><button class="filter active" data-filter="all">Tout</button><button class="filter" data-filter="normale">Normale</button><button class="filter" data-filter="rattrapage">Rattrapage</button></div>
+  <div class="exam-list">
+    <article class="exam-card" data-session="normale"><div class="pdf-icon">PDF</div><div class="exam-info"><h3>Examen — Session normale 2025</h3><p>Ajoute ici ton fichier PDF autorisé.</p></div><span class="status">À ajouter</span></article>
+    <article class="exam-card" data-session="rattrapage"><div class="pdf-icon">PDF</div><div class="exam-info"><h3>Examen — Session rattrapage 2025</h3><p>Ajoute ici ton fichier PDF autorisé.</p></div><span class="status">À ajouter</span></article>
+    <article class="exam-card" data-session="normale"><div class="pdf-icon">PDF</div><div class="exam-info"><h3>Examen — Session normale 2024</h3><p>Ajoute ici ton fichier PDF autorisé.</p></div><span class="status">À ajouter</span></article>
+  </div>
+  <div class="ad-placeholder"><span>ESPACE PUBLICITAIRE</span><small>Un emplacement pourra être configuré si le site est accepté par AdSense.</small></div>
+  <p class="disclaimer">Les fichiers PDF ne sont pas encore ajoutés. Publie uniquement des documents que tu as le droit de partager.</p>
+</main>
+<footer><a class="brand" href="index.html"><span class="brand-mark">U</span><span>UniExam <b>Maroc</b></span></a><div><a href="about.html">À propos</a><a href="privacy.html">Confidentialité</a><a href="contact.html">Contact</a></div><small>© 2026 UniExam Maroc</small></footer>
+<script>
+const params = new URLSearchParams(location.search);
+const name = params.get('name') || 'Nom du module';
+document.getElementById('module-title').textContent = name;
+document.title = name + ' — UniExam Maroc';
+document.querySelectorAll('.filter').forEach(btn => btn.addEventListener('click', () => {
+  document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.exam-card').forEach(card => card.hidden = btn.dataset.filter !== 'all' && card.dataset.session !== btn.dataset.filter);
+}));
+</script></body></html>
